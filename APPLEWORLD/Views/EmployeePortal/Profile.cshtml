@@ -1,0 +1,15 @@
+@model Employee
+<div class="page-head"><div><h1>My Profile</h1><p>Your registered employee information.</p></div></div>
+<div class="card profile">
+@if(!string.IsNullOrEmpty(Model.PhotoPath)){<img class="profile-photo" src="@Model.PhotoPath" />}else{<div class="profile-photo placeholder">AW</div>}
+<div class="profile-data">
+<h2>@Model.FullName</h2>
+<p><b>Employee ID:</b> @Model.EmployeeCode</p>
+<p><b>National ID:</b> @Model.NationalId</p>
+<p><b>Gender:</b> @Model.Gender</p>
+<p><b>City:</b> @Model.City</p>
+<p><b>Telephone:</b> @Model.Telephone</p>
+<p><b>Email:</b> @Model.Email</p>
+<p><b>Department:</b> @Model.Department?.Name</p>
+<p><b>Registered:</b> @Model.RegistrationDate.ToString("dd/MM/yyyy")</p>
+</div></div>

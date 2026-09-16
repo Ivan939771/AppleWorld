@@ -1,0 +1,14 @@
+@model Assessment
+<div class="page-head"><div><h1>New Work Assessment</h1><p>Score each area from 0 to 100.</p></div></div>
+<div class="card"><form method="post">@Html.AntiForgeryToken()
+<div class="form-grid">
+<div><label>Employee</label><select asp-for="EmployeeId">@foreach(var e in (List<Employee>)ViewBag.Employees){<option value="@e.Id">@e.EmployeeCode — @e.FullName</option>}</select></div>
+<div><label>Assessment Date</label><input asp-for="AssessmentDate" type="date" /></div>
+<div><label>Attendance</label><input asp-for="AttendanceScore" type="number" min="0" max="100" /></div>
+<div><label>Punctuality</label><input asp-for="PunctualityScore" type="number" min="0" max="100" /></div>
+<div><label>Discipline</label><input asp-for="DisciplineScore" type="number" min="0" max="100" /></div>
+<div><label>Teamwork</label><input asp-for="TeamworkScore" type="number" min="0" max="100" /></div>
+<div><label>Work Quality</label><input asp-for="WorkQualityScore" type="number" min="0" max="100" /></div>
+</div>
+<label>Comments</label><textarea asp-for="Comments" rows="4"></textarea>
+<button class="button primary">SAVE ASSESSMENT</button></form></div>

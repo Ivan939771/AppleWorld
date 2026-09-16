@@ -1,0 +1,5 @@
+@model IEnumerable<Payment>
+<div class="page-head"><div><h1>Monthly Payments</h1><p>Payment reminders are calculated from each employee's registration date.</p></div></div>
+<div class="card table-wrap"><table><thead><tr><th>Employee</th><th>Period</th><th>Due Date</th><th>Amount</th><th>Status</th><th>Action</th></tr></thead><tbody>
+@foreach(var p in Model){<tr><td>@p.Employee?.FullName</td><td>@p.PaymentPeriod</td><td>@p.DueDate.ToString("dd/MM/yyyy")</td><td>@p.Amount.ToString("N0")</td><td><span class="badge">@p.Status</span></td><td>@if(p.Status!="PAID"){<form asp-action="MarkPaid" method="post">@Html.AntiForgeryToken()<input type="hidden" name="id" value="@p.Id" /><button class="button small">MARK PAID</button></form>}else{<span>@p.PaymentDate?.ToString("dd/MM/yyyy")</span>}</td></tr>}
+</tbody></table></div>

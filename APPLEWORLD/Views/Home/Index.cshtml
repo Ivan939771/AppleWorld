@@ -1,0 +1,39 @@
+@model DashboardViewModel
+<div class="page-head">
+    <div><h1>Administrator Dashboard</h1><p>APPLE WORLD SHOPPING MALL · Employee Management System</p></div>
+</div>
+<div class="stats">
+    <div class="stat"><span>Total Employees</span><strong>@Model.TotalEmployees</strong></div>
+    <div class="stat"><span>Active Employees</span><strong>@Model.ActiveEmployees</strong></div>
+    <div class="stat"><span>Inactive Employees</span><strong>@Model.InactiveEmployees</strong></div>
+    <div class="stat alert-stat"><span>Payments Due</span><strong>@Model.DuePayments</strong></div>
+</div>
+<div class="grid-2">
+<section class="card">
+<h2>Departments</h2>
+<table><thead><tr><th>Department</th><th>Staff</th><th>Target</th></tr></thead><tbody>
+@foreach (var d in Model.Departments)
+{
+<tr><td>@d.Name</td><td>@d.Employees.Count(x => x.IsActive)</td><td>@d.RequiredWorkers</td></tr>
+}
+</tbody></table>
+</section>
+<section class="card">
+<h2>Payment Alerts</h2>
+@if (!Model.PaymentAlerts.Any()) { <p>No pending payments.</p> }
+@foreach (var p in Model.PaymentAlerts)
+{
+<div class="alert-row"><b>@p.Employee?.FullName</b><span>@p.DueDate.ToString("dd MMM yyyy")</span><em>@p.Status</em></div>
+}
+<a class="button" asp-controller="Payment" asp-action="Index">Open Payments</a>
+</section>
+</div>
+<section class="card">
+<h2>Quick Actions</h2>
+<div class="quick">
+<a class="button primary" asp-controller="Employees" asp-action="Create">+ Register Employee</a>
+<a class="button" asp-controller="Employees" asp-action="Index">Manage Employees</a>
+<a class="button" asp-controller="Schedule" asp-action="Index">Generate Schedule</a>
+<a class="button" asp-controller="Assessment" asp-action="Create">Add Assessment</a>
+</div>
+</section>

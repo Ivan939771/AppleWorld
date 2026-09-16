@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>APPLE WORLD SHOPPING MALL</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+<header class="topbar">
+    <a class="brand" asp-controller="Home" asp-action="Index">
+        <span class="brand-mark">AW</span>
+        <span>APPLE WORLD<br><small>SHOPPING MALL</small></span>
+    </a>
+    @if (User.Identity?.IsAuthenticated == true)
+    {
+        <div class="top-user">
+            <span>@User.Identity.Name</span>
+            <form asp-controller="Account" asp-action="Logout" method="post">
+                <button class="link-btn" type="submit">Logout</button>
+            </form>
+        </div>
+    }
+</header>
+<div class="app-shell">
+@if (User.Identity?.IsAuthenticated == true)
+{
+    <aside class="sidebar">
+        @if (User.IsInRole("Admin"))
+        {
+            <div class="nav-title">ADMIN MENU</div>
+            <a asp-controller="Home" asp-action="Index">Dashboard</a>
+            <a asp-controller="Employees" asp-action="Index">Employees</a>
+            <a asp-controller="Employees" asp-action="Create">Register Employee</a>
+            <a asp-controller="Schedule" asp-action="Index">Work Schedule</a>
+            <a asp-controller="Assessment" asp-action="Index">Assessments</a>
+            <a asp-controller="Payment" asp-action="Index">Payments</a>
+        }
+        else
+        {
+            <div class="nav-title">EMPLOYEE MENU</div>
+            <a asp-controller="EmployeePortal" asp-action="MySchedule">My Schedule</a>
+            <a asp-controller="EmployeePortal" asp-action="Assessments">My Assessments</a>
+            <a asp-controller="EmployeePortal" asp-action="Profile">My Profile</a>
+        }
+    </aside>
+}
+<main class="main">
+    @if (TempData["Success"] != null) { <div class="alert success">@TempData["Success"]</div> }
+    @RenderBody()
+</main>
+</div>
+</body>
+</html>

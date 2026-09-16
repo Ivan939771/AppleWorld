@@ -1,0 +1,30 @@
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Login | Apple World Shopping Mall</title>
+<link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body class="login-page">
+<div class="login-card">
+    <div class="login-logo">AW</div>
+    <h1>APPLE WORLD</h1>
+    <p>SHOPPING MALL EMPLOYEE MANAGEMENT SYSTEM</p>
+    <h2>Secure Login</h2>
+    @if (ViewBag.Error != null) { <div class="alert danger">@ViewBag.Error</div> }
+    <form method="post">
+        @Html.AntiForgeryToken()
+        <label>Username / Employee ID</label>
+        <input name="username" required />
+        <label>Password</label>
+        <input name="password" type="password" required />
+        <button class="primary full" type="submit">LOGIN</button>
+    </form>
+    <div class="login-note">Administrator default: <b>admin</b> / <b>Admin@123</b></div>
+</div>
+</body>
+</html>

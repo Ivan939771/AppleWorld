@@ -1,0 +1,20 @@
+@model Employee
+<div class="page-head"><div><h1>Edit Employee</h1><p>@Model.EmployeeCode</p></div></div>
+<div class="card"><form method="post" enctype="multipart/form-data">
+@Html.AntiForgeryToken()
+<input asp-for="Id" type="hidden" />
+<input asp-for="EmployeeCode" type="hidden" />
+<div class="form-grid">
+<div><label>Full Name</label><input asp-for="FullName" /></div>
+<div><label>National ID</label><input asp-for="NationalId" /></div>
+<div><label>Gender</label><select asp-for="Gender"><option>Male</option><option>Female</option></select></div>
+<div><label>City</label><input asp-for="City" /></div>
+<div><label>Telephone</label><input asp-for="Telephone" /></div>
+<div><label>Email</label><input asp-for="Email" /></div>
+<div><label>Registration Date</label><input asp-for="RegistrationDate" type="date" /></div>
+<div><label>Department</label><select asp-for="DepartmentId">@foreach(var d in (List<Department>)ViewBag.Departments){<option value="@d.Id">@d.Name</option>}</select></div>
+<div><label>Replace Photo</label><input name="Photo" type="file" accept=".jpg,.jpeg,.png,.webp" /></div>
+<div><label>Account Status</label><select asp-for="IsActive"><option value="true">Active</option><option value="false">Inactive</option></select></div>
+</div>
+<button class="button primary">SAVE CHANGES</button> <a class="button" asp-action="Index">Cancel</a>
+</form></div>

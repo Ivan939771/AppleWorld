@@ -1,0 +1,13 @@
+@model (Employee employee, List<WorkSchedule> schedules)
+<div class="page-head"><div><h1>Welcome, @Model.employee.FullName</h1><p>@Model.employee.EmployeeCode · @Model.employee.Department?.Name</p></div></div>
+<div class="card">
+<h2>My Work Schedule</h2>
+<div class="worker-grid">
+@foreach(var s in Model.schedules.OrderBy(x=>x.WorkDate))
+{
+<div class="worker @(s.Status=="WORK" ? "work-card" : "")">
+<b>@s.WorkDate.ToString("ddd, dd MMM")</b><br/><span>@s.Status</span>
+</div>
+}
+</div>
+</div>

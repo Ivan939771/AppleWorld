@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\AppleWorldShoppingMallEMS.props" />
+</Project>

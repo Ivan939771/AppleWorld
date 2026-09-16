@@ -1,0 +1,27 @@
+@model IEnumerable<WorkSchedule>
+@{
+var start = (DateTime)ViewBag.Start;
+var list = Model.ToList();
+}
+<div class="page-head">
+<div><h1>7-Day Work Schedule</h1><p>Each active employee is randomly assigned exactly 3 work days.</p></div>
+<form asp-action="Generate" method="post">@Html.AntiForgeryToken()<input type="hidden" name="start" value="@start.ToString("yyyy-MM-dd")" /><button class="button primary" onclick="return confirm('Replace the schedule for this week?')">GENERATE RANDOM SCHEDULE</button></form>
+</div>
+<div class="day-tabs">
+@for(int i=0;i<7;i++){<a class="@(i==0 ? "selected" : "")" href="#day@(i+1)">Day @(i+1)<small>@start.AddDays(i).ToString("dd MMM")</small></a>}
+</div>
+@for(int i=0;i<7;i++)
+{
+var day = list.Where(x => x.DayNumber == i+1).ToList();
+<div class="card schedule-day" id="day@(i+1)">
+<h2>Day @(i+1) — @start.AddDays(i).ToString("dddd, dd MMMM yyyy")</h2>
+@foreach(var group in day.Where(x=>x.Status=="WORK").GroupBy(x=>x.Employee?.Department?.Name))
+{
+<h3>@group.Key</h3>
+<div class="worker-grid">
+@foreach(var s in group){<div class="worker">@s.Employee?.FullName</div>}
+</div>
+}
+@if(!day.Any(x=>x.Status=="WORK")){<p>No schedule generated yet. Use the button above.</p>}
+</div>
+}

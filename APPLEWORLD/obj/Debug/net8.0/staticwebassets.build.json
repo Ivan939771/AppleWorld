@@ -1,0 +1,58 @@
+{
+  "Version": 1,
+  "Hash": "O5xXgHfFJrHZPtD2tg9RdoPy4Ah2/6u8Pj/6xFPpSkE=",
+  "Source": "AppleWorldShoppingMallEMS",
+  "BasePath": "_content/AppleWorldShoppingMallEMS",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "AppleWorldShoppingMallEMS\\wwwroot",
+      "Source": "AppleWorldShoppingMallEMS",
+      "ContentRoot": "C:\\Users\\MCP\\OneDrive\\Desktop\\APPLEWORLD\\wwwroot\\",
+      "BasePath": "_content/AppleWorldShoppingMallEMS",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\MCP\\OneDrive\\Desktop\\APPLEWORLD\\wwwroot\\css\\site.css",
+      "SourceId": "AppleWorldShoppingMallEMS",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\MCP\\OneDrive\\Desktop\\APPLEWORLD\\wwwroot\\",
+      "BasePath": "_content/AppleWorldShoppingMallEMS",
+      "RelativePath": "css/site.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\MCP\\OneDrive\\Desktop\\APPLEWORLD\\wwwroot\\uploads\\.gitkeep",
+      "SourceId": "AppleWorldShoppingMallEMS",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\MCP\\OneDrive\\Desktop\\APPLEWORLD\\wwwroot\\",
+      "BasePath": "_content/AppleWorldShoppingMallEMS",
+      "RelativePath": "uploads/.gitkeep",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\.gitkeep"
+    }
+  ]
+}

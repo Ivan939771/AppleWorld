@@ -1,0 +1,18 @@
+@model IEnumerable<Employee>
+<div class="page-head"><div><h1>Employees</h1><p>Manage all active and inactive mall workers.</p></div><a class="button primary" asp-action="Create">+ Register Employee</a></div>
+<form class="search" method="get"><input name="search" value="@ViewBag.Search" placeholder="Search name, employee ID or telephone..." /><button class="button">Search</button></form>
+<div class="card table-wrap">
+<table>
+<thead><tr><th>Photo</th><th>Employee ID</th><th>Name</th><th>Department</th><th>Telephone</th><th>Registered</th><th>Status</th><th>Actions</th></tr></thead>
+<tbody>
+@foreach (var e in Model)
+{
+<tr>
+<td>@if(!string.IsNullOrEmpty(e.PhotoPath)){<img class="avatar" src="@e.PhotoPath" />}else{<div class="avatar placeholder">AW</div>}</td>
+<td><b>@e.EmployeeCode</b></td><td>@e.FullName</td><td>@e.Department?.Name</td><td>@e.Telephone</td><td>@e.RegistrationDate.ToString("dd/MM/yyyy")</td>
+<td><span class="badge @(e.IsActive ? "active" : "inactive")">@(e.IsActive ? "ACTIVE" : "INACTIVE")</span></td>
+<td class="actions"><a asp-action="Edit" asp-route-id="@e.Id">Edit</a>
+@if(e.IsActive){<form asp-action="Deactivate" asp-route-id="@e.Id" method="post">@Html.AntiForgeryToken()<button class="danger-link" onclick="return confirm('Deactivate this employee?')">Deactivate</button></form>}</td>
+</tr>
+}
+</tbody></table></div>

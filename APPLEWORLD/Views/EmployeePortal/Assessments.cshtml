@@ -1,0 +1,5 @@
+@model IEnumerable<Assessment>
+<div class="page-head"><div><h1>My Assessments</h1><p>Performance assessments recorded by authorized management.</p></div></div>
+<div class="card table-wrap"><table><thead><tr><th>Date</th><th>Attendance</th><th>Punctuality</th><th>Discipline</th><th>Teamwork</th><th>Quality</th><th>Overall</th><th>Comments</th></tr></thead><tbody>
+@foreach(var a in Model){<tr><td>@a.AssessmentDate.ToString("dd/MM/yyyy")</td><td>@a.AttendanceScore</td><td>@a.PunctualityScore</td><td>@a.DisciplineScore</td><td>@a.TeamworkScore</td><td>@a.WorkQualityScore</td><td><b>@a.OverallScore.ToString("0.0")%</b></td><td>@a.Comments</td></tr>}
+</tbody></table></div>

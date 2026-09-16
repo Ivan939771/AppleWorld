@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\MCP\\OneDrive\\Desktop\\APPLEWORLD\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\MCP\\OneDrive\\Desktop\\APPLEWORLD\\wwwroot\\uploads\\.gitkeep",
+      "PackagePath": "staticwebassets\\uploads\\.gitkeep"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.AppleWorldShoppingMallEMS.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.AppleWorldShoppingMallEMS.props",
+      "PackagePath": "build\\AppleWorldShoppingMallEMS.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.AppleWorldShoppingMallEMS.props",
+      "PackagePath": "buildMultiTargeting\\AppleWorldShoppingMallEMS.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.AppleWorldShoppingMallEMS.props",
+      "PackagePath": "buildTransitive\\AppleWorldShoppingMallEMS.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
