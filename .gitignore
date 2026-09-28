@@ -1,0 +1,18 @@
+## Build results
+[Bb]in/
+[Ob]j/
+out/
+
+## User-specific files
+*.user
+*.userosscache
+*.sln.docstates
+
+## Database
+*.db
+*.db-shm
+*.db-wal
+
+## IDE
+.vs/
+.vscode/

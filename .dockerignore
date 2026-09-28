@@ -1,0 +1,15 @@
+.git
+.gitignore
+.vs
+.vscode
+**/.vs
+**/.vscode
+**/bin
+**/obj
+**/appleworld.db
+**/appleworld.db-shm
+**/appleworld.db-wal
+Dockerfile*
+render.yaml
+README.md
+RENDER_DEPLOYMENT.md
